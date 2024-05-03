@@ -8,6 +8,7 @@ import PrivateRoutes from './PrivateRoutes'
 
 const AllRoutes = () => {
   return (
+     //Routes
       <Routes>
           <Route path='/' element={<HomePage/>} />
           <Route path='/register' element={<SignupPage/>} />
