@@ -8,10 +8,11 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+src/Constants/config.jsx
 dist
 dist-ssr
 *.local
-../../Constants/config/
+
 
 # Editor directories and files
 .vscode/*
