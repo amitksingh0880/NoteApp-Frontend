@@ -6,10 +6,12 @@ import {
 } from "./user.type";
 
 const initialState = {
+  name: null,
   auth: false,
   token: null,
   loading: false,
   error: false,
+  email: null
 };
 
 const userReducer=(state = initialState, action)=> {
@@ -26,8 +28,10 @@ const userReducer=(state = initialState, action)=> {
         ...state,
         loading: false,
         error: false,
-        token: payload,
+        token: payload.token,
         auth: true,
+        name: payload.user.name,
+        email: payload.user.email
       };
     case LOGIN_USER_ERROR:
       return {

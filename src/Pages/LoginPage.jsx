@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
 
-      const {auth , token, loading , error} = useSelector((state) =>state.userReducer);
+      const { auth , token, loading , error} = useSelector((state) =>state.userReducer);
         console.log(auth, token);
          const [email, setEmail] = useState("")
         const [password, setPassword] = useState("")
@@ -30,7 +30,7 @@ const LoginPage = () => {
             if (auth) {
                 nav("/notes");
             }
-        }, [auth, nav]);
+        },[auth, nav]);
 
        const handleLogin = ()=> {
                dispatch(getUser(email,password))
@@ -42,6 +42,7 @@ const LoginPage = () => {
         <Flex w={"100%"}>
             <Image
                 width={"50%"}
+                marginTop={"16"}
                 src={
                     "https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?w=740&t=st=1713804410~exp=1713805010~hmac=c574ebc85eebf51e60f6b36f7d1c8abe2b0cc4c36d320c194c57ece7f5be633b"
                 }

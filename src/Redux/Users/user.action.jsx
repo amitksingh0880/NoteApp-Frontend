@@ -9,15 +9,15 @@ export const getUser=(email,password)=>async(dispatch)=>{
         
         let data = await axios.post(BASE_URL+"/user/login",{
                   email : email,
-                  password: password
+                  password: password,
         });
-        let {message ,token, status} = data.data
+        let {message ,token, user , status} = data.data
         console.log(data);
         console.log(message);
         if(status==1){
-            alert(message)
+            alert(message);
             dispatch({ type:LOGIN_USER_SUCCESS, 
-                       payload:token
+                       payload:{token,user}
                     })
         }else{
             alert(message)

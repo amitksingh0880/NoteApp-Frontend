@@ -49,6 +49,7 @@ const SignupPage = () => {
     <Flex w={"100%"}>
       <Image
         width={"50%"}
+        marginTop={"16"}
         src={
           "https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?w=740&t=st=1713804410~exp=1713805010~hmac=c574ebc85eebf51e60f6b36f7d1c8abe2b0cc4c36d320c194c57ece7f5be633b"
         }

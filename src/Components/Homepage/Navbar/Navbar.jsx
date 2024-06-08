@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { faker } from '@faker-js/faker'
 import {
   Box,
   Flex,
@@ -25,11 +26,11 @@ function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const dispatch = useDispatch()
-  const {auth , token, loading , error} = useSelector((state) =>state.userReducer)
+  const {auth , token, loading , error , name, email} = useSelector((state) =>state.userReducer)
   const nav = useNavigate()
   return (
     <>
-      <Box zIndex={1000} position={"fixed"} top={0} w={"100%"} boxShadow={"rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;"} bg={useColorModeValue('yellow.400')} px={4}>
+      <Box zIndex={10} position={"fixed"} top={0} w={"100%"} boxShadow={"rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;"} bg={useColorModeValue('yellow.400')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box fontWeight={"bold"} fontFamily={"sans-serif"} cursor={"pointer"} onClick={()=>{
             nav("/")
@@ -62,7 +63,7 @@ function Navbar() {
                   minW={0}>
                   <Avatar
                     size={'sm'}
-                    src={'https://avatars.dicebear.com/api/male/username.svg'}
+                    src={faker.image.avatar()}
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -70,18 +71,21 @@ function Navbar() {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={'https://avatars.dicebear.com/api/male/username.svg'}
+                      src={faker.image.avatar()}
                     />
                   </Center>
                   <br />
                   <Center>
-                    <p>Username</p>
+                    <Flex direction="column" alignItems="center">
+                      <p>{auth ? name : 'Guest'}</p>
+                      <p>{auth ? email : null}</p>
+                    </Flex>
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <MenuItem onClick={()=>{
+                  {/* <MenuItem>Your Servers</MenuItem>
+                  <MenuItem>Account Settings</MenuItem> */}
+                  <MenuItem display={auth ? "block" : 'none'} onClick={()=>{
                     dispatch({type:LOGOUT})
                   }}>Logout</MenuItem>
                 </MenuList>

@@ -1,1 +1,1 @@
-export const BASE_URL = "https://noteapp-backend-gox2.onrender.com"
+export const BASE_URL = "http://localhost:3000"
