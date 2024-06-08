@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 
+src/Constants
+
 
 # Editor directories and files
 .vscode/*
