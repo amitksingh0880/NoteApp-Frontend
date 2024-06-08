@@ -1,1 +1,1 @@
-export const BASE_URL ="Abc"
+export const BASE_URL = "https://noteapp-backend-gox2.onrender.com"
