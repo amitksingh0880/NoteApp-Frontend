@@ -12,7 +12,9 @@ dist
 dist-ssr
 *.local
 
-src/Constants
+.src/Constants
+# src\Constants
+
 
 
 # Editor directories and files
